@@ -35,5 +35,3 @@ def test_form():
     browser.element('.table').should(have.text('rick.jpeg'))
     browser.element('.table').should(have.text('Lenin street, 28'))
     browser.element('.table').should(have.text('NCR Delhi'))
-
-    print(10)
