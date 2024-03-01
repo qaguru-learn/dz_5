@@ -1,37 +1,37 @@
-from selene import browser, have, be, by
-import os
+from tests.pages.registration_page import RegistrationPage
 
 
 def test_form():
-    browser.open('/automation-practice-form')
-    browser.element('#firstName').should(be.blank).type('Yuriy')
-    browser.element('#lastName').should(be.blank).type('Choba')
-    browser.element('#userEmail').should(be.blank).type('yuriy.choba@ex.com')
-    browser.element("#gender-radio-1").double_click()
-    browser.element('#userNumber').should(be.blank).type('8987654321')
-    browser.element('#dateOfBirthInput').click()
-    browser.element(".react-datepicker__year-select").click().element(by.text('1990')).click()
-    browser.element(".react-datepicker__month-select").click().element(by.text('March')).click()
-    browser.element(".react-datepicker__week .react-datepicker__day--015").click()
-    browser.element('#subjectsInput').type('Chemistry').press_enter()
-    browser.element('[for=hobbies-checkbox-2]').click()
-    browser.element('#uploadPicture').type(os.path.abspath('pictures/rick.jpeg'))
-    browser.element('#currentAddress').should(be.blank).type('Lenin street, 28')
-    browser.element('#react-select-3-input').should(be.blank).type('NCR').press_enter()
-    browser.element('#react-select-4-input').should(be.blank).type('Delhi').press_enter()
-    browser.element('#submit').press_enter()
+    registration_page = RegistrationPage()
+    registration_page.open()
+    (registration_page
+        .fill_firstname('Yuriy')
+        .fill_lastname('Choba')
+        .fill_email('yuriy.choba@ex.com')
+        .gender_make_choice()
+        .fill_phonenumber('8987654321')
+        .fill_birthday(day=15, month='March', year=1990)
+        .fill_subjects('Chemistry')
+        .hobbies_make_choice('Reading')
+        .upload_picture()
+        .fill_address('Lenin street, 28')
+        .fill_state('NCR')
+        .fill_city('Delhi')
+        .submit()
+     )
 
-    # проверяем что форма заполнилась
-    browser.element('.modal-header').should(have.text('Thanks for submitting the form'))
-
-    # проверяем что данные внесены корректно
-    browser.element('.table').should(have.text('Yuriy Choba'))
-    browser.element('.table').should(have.text('yuriy.choba@ex.com'))
-    browser.element('.table').should(have.text('Male'))
-    browser.element('.table').should(have.text('8987654321'))
-    browser.element('.table').should(have.text('15 March,1990'))
-    browser.element('.table').should(have.text('Chemistry'))
-    browser.element('.table').should(have.text('Reading'))
-    browser.element('.table').should(have.text('rick.jpeg'))
-    browser.element('.table').should(have.text('Lenin street, 28'))
-    browser.element('.table').should(have.text('NCR Delhi'))
+    (registration_page
+        .form_should_be_completed()
+        .should_registered_with(
+            'Yuriy Choba',
+            'yuriy.choba@ex.com',
+            'Male',
+            '8987654321',
+            '15 March,1990',
+            'Chemistry',
+            'Reading',
+            'rick.jpeg',
+            'Lenin street, 28',
+            'NCR Delhi',
+        )
+    )
