@@ -27,3 +27,10 @@ class User:
     address: str
     state_city: str
 
+
+@dataclass
+class SimpleUser:
+    fullname: str
+    email: str
+    current_address: str
+    permanent_address: str
