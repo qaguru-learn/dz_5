@@ -1,5 +1,5 @@
 from selene import browser, have, be, by
-from demoqa_tests.models import resources
+from demoqa_tests.models import resource
 
 
 class RegistrationPage:
@@ -45,7 +45,7 @@ class RegistrationPage:
         return self
 
     def upload_picture(self):
-        browser.element('#uploadPicture').type(resources.path('rick.jpg'))
+        browser.element('#uploadPicture').type(resource.path('rick.jpg'))
         return self
 
     def fill_address(self, value):
