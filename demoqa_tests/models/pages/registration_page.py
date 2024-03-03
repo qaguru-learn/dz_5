@@ -1,5 +1,5 @@
 from selene import browser, have, be, by
-import os
+from demoqa_tests.models import resources
 
 
 class RegistrationPage:
@@ -24,7 +24,7 @@ class RegistrationPage:
         browser.element("#gender-radio-1").double_click()
         return self
 
-    def fill_phonenumber(self, value):
+    def fill_phone_number(self, value):
         browser.element('#userNumber').should(be.blank).type(value)
         return self
 
@@ -45,7 +45,7 @@ class RegistrationPage:
         return self
 
     def upload_picture(self):
-        browser.element('#uploadPicture').type(os.path.abspath('pictures/rick.jpeg'))
+        browser.element('#uploadPicture').type(resources.path('rick.jpg'))
         return self
 
     def fill_address(self, value):
@@ -70,7 +70,7 @@ class RegistrationPage:
 
     def should_registered_with(self,
                                fullname, email, gender, phone_number, birthday,
-                               subject, hobbie, photo, address, state_city):
+                               subject, hobby, photo, address, state_city):
         browser.element('.table').all('td').even.should(have.exact_texts(
             fullname,
             email,
@@ -78,7 +78,7 @@ class RegistrationPage:
             phone_number,
             birthday,
             subject,
-            hobbie,
+            hobby,
             photo,
             address,
             state_city

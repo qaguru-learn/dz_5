@@ -1,4 +1,4 @@
-from tests.pages.registration_page import RegistrationPage
+from demoqa_tests.models.pages.registration_page import RegistrationPage
 
 
 def test_form():
@@ -33,5 +33,4 @@ def test_form():
             'rick.jpeg',
             'Lenin street, 28',
             'NCR Delhi',
-        )
-    )
+        ))
