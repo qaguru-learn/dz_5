@@ -44,8 +44,8 @@ class RegistrationPage:
         browser.element(f'[for=hobbies-checkbox-{choice}]').click()
         return self
 
-    def upload_picture(self):
-        browser.element('#uploadPicture').type(resource.path('rick.jpg'))
+    def upload_picture(self, value):
+        browser.element('#uploadPicture').type(resource.path(value))
         return self
 
     def fill_address(self, value):

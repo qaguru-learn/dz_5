@@ -13,7 +13,7 @@ def test_form():
         .fill_birthday(day=15, month='March', year=1990)
         .fill_subjects('Chemistry')
         .hobbies_make_choice('Reading')
-        .upload_picture()
+        .upload_picture('rick.jpeg')
         .fill_address('Lenin street, 28')
         .fill_state('NCR')
         .fill_city('Delhi')
