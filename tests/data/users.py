@@ -22,7 +22,7 @@ class User:
     phone_number: str
     birthday: datetime.date
     subject: str
-    hobby: Enum
+    hobby: Hobbies
     photo: str
     address: str
     state_city: str
