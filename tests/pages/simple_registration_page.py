@@ -28,14 +28,14 @@ class SimpleRegistrationPage:
         browser.element('#submit').press_enter()
         return self
 
-    def register(self,cur_user: SimpleUser):
+    def register(self, cur_user: SimpleUser):
         (self
-        .fill_fullname(cur_user)
-        .fill_email(cur_user)
-        .fill_current_address(cur_user)
-        .fill_permanent_address(cur_user)
-        .submit()
-        )
+         .fill_fullname(cur_user)
+         .fill_email(cur_user)
+         .fill_current_address(cur_user)
+         .fill_permanent_address(cur_user)
+         .submit()
+         )
         return self
 
     def should_registered_with(self, cur_user: SimpleUser):

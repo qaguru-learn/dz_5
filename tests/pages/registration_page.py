@@ -1,6 +1,5 @@
 from selene import browser, have, be, by
 import os
-
 from tests.data.users import User, Genders, Hobbies
 
 
@@ -33,8 +32,10 @@ class RegistrationPage:
 
     def fill_birthday(self, cur_user: User):
         browser.element('#dateOfBirthInput').click()
-        browser.element(".react-datepicker__year-select").click().element(by.text(f'{cur_user.birthday.year}')).click()
-        browser.element(".react-datepicker__month-select").click().element(by.text(f'{cur_user.birthday.strftime("%B")}')).click()
+        browser.element(".react-datepicker__year-select").click().\
+            element(by.text(f'{cur_user.birthday.year}')).click()
+        browser.element(".react-datepicker__month-select").click().\
+            element(by.text(f'{cur_user.birthday.strftime("%B")}')).click()
         browser.element(f".react-datepicker__week .react-datepicker__day--0{cur_user.birthday.day}").click()
         return self
 
@@ -69,21 +70,20 @@ class RegistrationPage:
         browser.element('.modal-header').should(have.text('Thanks for submitting the form'))
         return self
 
-    def register(self,cur_user: User):
+    def register(self, cur_user: User):
         (self
-        .fill_firstname(cur_user)
-        .fill_lastname(cur_user)
-        .fill_email(cur_user)
-        .gender_make_choice(cur_user)
-        .fill_phone_number(cur_user)
-        .fill_birthday(cur_user)
-        .fill_subjects(cur_user)
-        .hobbies_make_choice(cur_user)
-        .upload_picture(cur_user)
-        .fill_address(cur_user)
-        .fill_state_city(cur_user)
-        .submit()
-        )
+            .fill_firstname(cur_user)
+            .fill_lastname(cur_user)
+            .fill_email(cur_user)
+            .gender_make_choice(cur_user)
+            .fill_phone_number(cur_user)
+            .fill_birthday(cur_user)
+            .fill_subjects(cur_user)
+            .hobbies_make_choice(cur_user)
+            .upload_picture(cur_user)
+            .fill_address(cur_user)
+            .fill_state_city(cur_user)
+            .submit())
         return self
 
     def should_registered_with(self, cur_user: User):

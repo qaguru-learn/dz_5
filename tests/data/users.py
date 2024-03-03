@@ -3,12 +3,12 @@ from enum import Enum
 from datetime import datetime
 
 
-class Genders(Enum):
+class Genders(str, Enum):
     MALE = 'Male'
     FEMALE = 'Female'
 
 
-class Hobbies(Enum):
+class Hobbies(str, Enum):
     READING = 'Reading'
     MUSIC = 'Music'
     SPORTS = 'Sports'
@@ -22,7 +22,7 @@ class User:
     phone_number: str
     birthday: datetime.date
     subject: str
-    hobby: Enum
+    hobby: Hobbies
     photo: str
     address: str
     state_city: str
