@@ -1,5 +1,5 @@
 from selene import browser, have, be, by
-import os
+from demoqa_tests.models import resources
 
 
 def test_form():
@@ -15,7 +15,7 @@ def test_form():
     browser.element(".react-datepicker__week .react-datepicker__day--015").click()
     browser.element('#subjectsInput').type('Chemistry').press_enter()
     browser.element('[for=hobbies-checkbox-2]').click()
-    browser.element('#uploadPicture').type(os.path.abspath('pictures/rick.jpeg'))
+    browser.element('#uploadPicture').type(resources.path('rick.jpeg'))
     browser.element('#currentAddress').should(be.blank).type('Lenin street, 28')
     browser.element('#react-select-3-input').should(be.blank).type('NCR').press_enter()
     browser.element('#react-select-4-input').should(be.blank).type('Delhi').press_enter()
