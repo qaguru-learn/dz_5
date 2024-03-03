@@ -9,7 +9,7 @@ def test_form():
         .fill_lastname('Choba')
         .fill_email('yuriy.choba@ex.com')
         .gender_make_choice()
-        .fill_phonenumber('8987654321')
+        .fill_phone_number('8987654321')
         .fill_birthday(day=15, month='March', year=1990)
         .fill_subjects('Chemistry')
         .hobbies_make_choice('Reading')
