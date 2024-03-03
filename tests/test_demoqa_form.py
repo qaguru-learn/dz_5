@@ -1,7 +1,7 @@
 import datetime
 
-from tests.data.users import User, Genders, Hobbies
-from tests.pages.registration_page import RegistrationPage
+from demoqa_tests.data.users import User, Genders, Hobbies
+from demoqa_tests.models.pages.registration_page import RegistrationPage
 
 
 def test_form():
@@ -14,7 +14,7 @@ def test_form():
         birthday=datetime.date(1990, 3, 15),
         subject='Maths',
         hobby=Hobbies.READING.value,
-        photo='pictures/rick.jpeg',
+        photo='rick.jpeg',
         address='Lenin street, 28',
         state_city='NCR Delhi',
     )

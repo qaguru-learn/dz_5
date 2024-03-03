@@ -1,7 +1,6 @@
 from selene import browser, have, be, by
-import os
-
-from tests.data.users import User, Genders, Hobbies
+from demoqa_tests import resource
+from demoqa_tests.data.users import User, Genders, Hobbies
 
 
 class RegistrationPage:
@@ -51,7 +50,7 @@ class RegistrationPage:
         return self
 
     def upload_picture(self, cur_user: User):
-        browser.element('#uploadPicture').type(os.path.abspath(cur_user.photo))
+        browser.element('#uploadPicture').type(resource.path(cur_user.photo))
         return self
 
     def fill_address(self, cur_user: User):
