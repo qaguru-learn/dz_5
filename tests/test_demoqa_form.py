@@ -13,7 +13,7 @@ def test_form():
         phone_number='8987654321',
         birthday=datetime.date(1990, 3, 15),
         subject='Maths',
-        hobbie=Hobbies.READING.value,
+        hobby=Hobbies.READING.value,
         photo='pictures/rick.jpeg',
         address='Lenin street, 28',
         state_city='NCR Delhi',
