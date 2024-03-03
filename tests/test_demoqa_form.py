@@ -1,5 +1,4 @@
 import datetime
-
 from demoqa_tests.data.users import User, Genders, Hobbies
 from demoqa_tests.models.pages.registration_page import RegistrationPage
 
