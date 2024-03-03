@@ -1,6 +1,6 @@
 import datetime
-from tests.appmanager import app
-from tests.data.users import User, Genders, Hobbies, SimpleUser
+from demoqa_tests.models.appmanager import app
+from demoqa_tests.data.users import User, Genders, Hobbies, SimpleUser
 
 
 def test_registration_page():
@@ -12,7 +12,7 @@ def test_registration_page():
         birthday=datetime.date(1990, 3, 15),
         subject='Maths',
         hobby=Hobbies.READING.value,
-        photo='pictures/rick.jpeg',
+        photo='rick.jpeg',
         address='Lenin street, 28',
         state_city='NCR Delhi',
     )

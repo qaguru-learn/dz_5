@@ -1,5 +1,5 @@
-from tests.pages.registration_page import RegistrationPage
-from tests.pages.simple_registration_page import SimpleRegistrationPage
+from demoqa_tests.models.pages.registration_page import RegistrationPage
+from demoqa_tests.models.pages.simple_registration_page import SimpleRegistrationPage
 
 
 class LeftPanel:

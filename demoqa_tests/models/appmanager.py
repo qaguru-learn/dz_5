@@ -1,4 +1,4 @@
-from tests.pages.left_panel import LeftPanel
+from demoqa_tests.models.pages.left_panel import LeftPanel
 
 
 class ApplicationManager:

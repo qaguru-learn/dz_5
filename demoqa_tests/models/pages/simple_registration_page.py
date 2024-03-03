@@ -1,5 +1,5 @@
 from selene import browser, have, be
-from tests.data.users import SimpleUser
+from demoqa_tests.data.users import SimpleUser
 
 
 class SimpleRegistrationPage:
