@@ -27,7 +27,7 @@ class RegistrationPage:
         browser.element(f"#gender-radio-{choice[cur_user.gender]}").double_click()
         return self
 
-    def fill_phonenumber(self, cur_user: User):
+    def fill_phone_number(self, cur_user: User):
         browser.element('#userNumber').should(be.blank).type(cur_user.phone_number)
         return self
 
@@ -45,7 +45,7 @@ class RegistrationPage:
     def hobbies_make_choice(self, cur_user: User):
         choice = {Hobbies.SPORTS.value: 1,
                   Hobbies.READING.value: 2, Hobbies.MUSIC.value: 3}
-        browser.element(f'[for=hobbies-checkbox-{choice[cur_user.hobbie]}]').click()
+        browser.element(f'[for=hobbies-checkbox-{choice[cur_user.hobby]}]').click()
         return self
 
     def upload_picture(self, cur_user: User):
@@ -75,7 +75,7 @@ class RegistrationPage:
         .fill_lastname(cur_user)
         .fill_email(cur_user)
         .gender_make_choice(cur_user)
-        .fill_phonenumber(cur_user)
+        .fill_phone_number(cur_user)
         .fill_birthday(cur_user)
         .fill_subjects(cur_user)
         .hobbies_make_choice(cur_user)
@@ -95,7 +95,7 @@ class RegistrationPage:
             cur_user.phone_number,
             cur_user.birthday.strftime('%d %B,%Y'),
             cur_user.subject,
-            cur_user.hobbie,
+            cur_user.hobby,
             cur_user.photo.split('/')[-1],
             cur_user.address,
             cur_user.state_city
